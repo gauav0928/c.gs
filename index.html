@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social Card Generator</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #04e6ff, #ec3300);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    #card {
+      margin-top: 30px;
+      background: rgb(220, 4, 217);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 20px #b5f00330;
+      display: inline-block;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>  Card Generator</h2>
+
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Your Name">
+  </div>
+  <div class="form-group">
+    <input type="text" id="instagram" placeholder="Instagram  id">
+  </div>
+  <div class="form-group">
+    <input type="text" id="youtube" placeholder="YouTube Channel">
+  </div>
+  <div class="form-group">
+    <input type="text" id="whatsapp" placeholder="WhatsApp no.">
+  </div>
+
+  <button onclick="generateCard()">Generate Card</button>
+
+  <div id="card"></div>
+
+  <script>
+    function generateCard() {
+      const name = document.getElementById('name').value;
+      const ig = document.getElementById('instagram').value;
+      const yt = document.getElementById('youtube').value;
+      const wa = document.getElementById('whatsapp').value;
+
+      const card = `
+        <div style="text-align: left;">
+          <h3> ${name}</h3>
+          <p> Instagram: <b>@${ig}</b></p>
+          <p> YouTube: <b>${yt}</b></p>
+          <p> WhatsApp: <b>${wa}</b></p>
+        </div>
+      `;
+      document.getElementById('card').innerHTML = card;
+    }
+  </script>
+
+</body>
+</html>
